@@ -9,6 +9,50 @@
 import sys
 import math
 
+def check_for_err():
+    halp = open("help", "r")
+
+    if len(sys.argv) > 1 and sys.argv[1] == "-h":
+        print(halp.read())
+        sys.exit(0)
+    elif len(sys.argv) < 3:
+        print("Too few arguments. Try -h for more informations.")
+        sys.exit(84)
+    elif len(sys.argv) > 4:
+        print("Too much arguments. Try -h for more informations.")
+        sys.exit(84)
+
+    i = 1
+    if len(sys.argv) == 4:
+        while i < 4:
+            try:
+                flag = int(sys.argv[i])
+            except ValueError:
+                print("Flag error. Try -h for more informations.")
+                sys.exit(84)
+            if flag < 0:
+                print("Flag error. Try -h for more informations.")
+                sys.exit(84)
+            i += 1
+    if len(sys.argv) ==	3:
+        try:
+            flag = int(sys.argv[1])
+        except ValueError:
+            print("Flag error. Try -h for more informations.")
+            sys.exit(84)
+        if flag < 0:
+            print("Flag error. Try -h for more informations.")
+            sys.exit(84)
+        try:
+            flag = float(sys.argv[2])
+        except ValueError:
+            print("Flag error. Try -h for more informations.")
+            sys.exit(84)
+        if flag > 4 or flag < 1:
+            print("Flag error. Try -h for more informations.")
+            sys.exit(84)
+
+
 def calc(x, k):
     x = (k * x) *((1000 - x) / 1000)
     return (x)
@@ -39,6 +83,7 @@ def form_two():
         k += 0.01
 
 def main():
+    check_for_err()
     if len(sys.argv) == 3 :
         form_one()
     elif len(sys.argv) == 4:
