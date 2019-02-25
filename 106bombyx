@@ -34,6 +34,7 @@ def check_for_err():
                 print("Flag error. Try -h for more informations.")
                 sys.exit(84)
             i += 1
+        if sys.argv[2] > sys.argv[3]
     if len(sys.argv) ==	3:
         try:
             flag = int(sys.argv[1])
