@@ -58,6 +58,8 @@ def check_for_err():
 
 def calc(x, k):
     x = (k * x) *((1000 - x) / 1000)
+    if x < 0:
+        return (0.0)
     return (x)
 
 def form_one():
